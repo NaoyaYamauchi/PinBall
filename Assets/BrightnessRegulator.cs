@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BrightnessRegulator : MonoBehaviour {
     //Materialを入れる
@@ -16,9 +17,13 @@ public class BrightnessRegulator : MonoBehaviour {
     private int speed = 10;
     //ターゲットのデフォルトの色
     Color defaultColor = Color.white;
+    //ポイント表示テキスト
+    private GameObject pointText;
 
 	// Use this for initialization
 	void Start () {
+
+        this.pointText = GameObject.Find("PointText");
 		//タグによって光らせる色を変える
         if(tag == "SmallStarTag")
         {
@@ -53,6 +58,7 @@ public class BrightnessRegulator : MonoBehaviour {
             //現在の角度を小さくする
             this.degree -= this.speed;
 
+            
         }
 	}
     //衝突時に呼ばれる関数
